@@ -1,6 +1,6 @@
 package io.nuun.extension.configuration;
 
-import java.util.Map;
+import org.apache.commons.configuration.Configuration;
 
 /**
  * @author Pierre Thirouin
@@ -8,5 +8,5 @@ import java.util.Map;
  */
 public interface ConfigurationProvider {
 
-    Map<String, Object> getConfiguration();
+    Configuration getConfiguration();
 }

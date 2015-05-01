@@ -1,9 +1,8 @@
 package io.nuun.extension.configuration;
 
 import io.nuun.kernel.core.AbstractPlugin;
-
-import java.util.HashMap;
-import java.util.Map;
+import org.apache.commons.configuration.BaseConfiguration;
+import org.apache.commons.configuration.Configuration;
 
 /**
  * @author Pierre Thirouin
@@ -16,10 +15,10 @@ public class FixtureConfigPlugin extends AbstractPlugin implements Configuration
     }
 
     @Override
-    public Map<String, Object> getConfiguration() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("key1", 1);
-        map.put("key2", 2);
-        return map;
+    public Configuration getConfiguration() {
+        Configuration configuration = new BaseConfiguration();
+        configuration.addProperty("key1", 1);
+        configuration.addProperty("key2", 2);
+        return configuration;
     }
 }

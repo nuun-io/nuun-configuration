@@ -3,6 +3,8 @@ package io.nuun.extension.configuration;
 import io.nuun.kernel.core.AbstractPlugin;
 import io.nuun.kernel.spi.KernelExtension;
 import org.apache.commons.configuration.CompositeConfiguration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
 
@@ -14,6 +16,8 @@ public class ConfigurationPlugin extends AbstractPlugin implements KernelExtensi
 
     private final CompositeConfiguration configuration = new CompositeConfiguration();
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigurationPlugin.class);
+
     @Override
     public String name() {
         return "configuration-plugin";
@@ -22,6 +26,7 @@ public class ConfigurationPlugin extends AbstractPlugin implements KernelExtensi
     @Override
     public void initialized(Collection<ConfigurationProvider> extendedPlugins) {
         for (ConfigurationProvider extendedPlugin : extendedPlugins) {
+            LOGGER.debug("Register configuration from " + extendedPlugin.getClass().getName());
             configuration.addConfiguration(extendedPlugin.getConfiguration());
         }
     }
