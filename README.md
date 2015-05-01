@@ -27,6 +27,7 @@ public class YAMLConfigurationPlugin extends AbstractPlugin implements Configura
     ...
 
 }
+```
 
 ### Get configuration from a user class
 
@@ -60,6 +61,6 @@ public class MyPlugin extends AbstractPlugin {
 }
 ```
 
-Copyright and license
+## Copyright and license
 
 Code is released under [LGPLv3 license](LICENSE).
